@@ -3,7 +3,7 @@ __author__ = 'Timothy Portfolio'
 '''To-Do List'''
 
 # turn this into a .exe with GUI
-# improve
+# improve readability
 # multi-threading possible with workerpool module?
 # better integration with retired leadership/permanent veterans
 
@@ -117,7 +117,7 @@ class Scraper(object):
             if self.rank is "Veteran":
                 if not(parser.invalid_tokens(date, True)):
                     link = tables[i].find_element_by_tag_name('a').get_attribute('href')
-                    # print(name + " - " + date + " - " + link)
+                    print(name + " - " + date + " - " + link)
                     user = UserProfile(name, link)
                     users.append(user)
             else:
@@ -130,7 +130,7 @@ class Scraper(object):
                     diff = today - datetime.date(year, parser.abbr_to_num(month), day)
                     if diff.days >= inactivity_length:
                         link = tables[i].find_element_by_tag_name('a').get_attribute('href')
-                        # print(name + " - " + str(diff.days) + " days" + " - " + link)
+                        print(name + " - " + str(diff.days) + " days" + " - " + link)
                         user = UserProfile(name, link)
                         users.append(user)
             i+=1
